@@ -52,12 +52,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4  # Download the artifact from the previous job
         with:
           name: dist-files
       - name: Output files
         run: ls
       - name: Output filename
-        run: echo ${{ needs.build.outputs.script-file }} # Output the JS filename
+        run: echo ${{ needs.build.outputs.script-file }} # Output the JS filename named script-file this name have to be the same as the output name in the previous job
       - name: Deploy
         run: echo "Deploying..."
